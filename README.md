@@ -39,7 +39,7 @@ The text scrolling engine is optimized with the following technical features:
 ## 🚀 Getting Started
 1. Upload the `tm1637.py` library from the `src/` directory to your ESP32.
 2. Deploy the `main.py` file using the `MicroPico: Upload file to board` command.
-3. Install host-side serial communication dependencies: `pip install -r requirements.txt`
+3. "Right-click on the `main.py` file and select 'Run current file to Pico` to execute the code.
 
 ---
 **Developer:** İlker ALKAN - Yıldız Technical University Electronics and Communications Engineering
@@ -89,7 +89,7 @@ Metin kaydırma mekanizması şu teknik özelliklerle optimize edilmiştir:
 ## 🚀 Kurulum Adımları
 1. `src/` klasöründeki `tm1637.py` kütüphanesini ESP32 içine yükleyin.
 2. `main.py` dosyasını `MicroPico: Upload file to board` komutuyla karta gönderin.
-3. Seri haberleşme araçlarını kurmak için: `pip install -r requirements.txt`
+3. `main.py` dosyasına sağ tık yaparak `Run current file to Pico` seçeneğine tıklayarak kodu çalıştırın. 
 
 ---
 **Geliştirici:** İlker ALKAN - Yıldız Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği
