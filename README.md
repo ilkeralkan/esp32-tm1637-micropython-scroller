@@ -1,3 +1,53 @@
+# MicroPython-Based Dynamic Text Scrolling with ESP32 and TM1637
+
+This project implements a dynamic text scrolling mechanism on an **ESP32 (HW-069)** microcontroller using **MicroPython**. It is specifically designed to handle character rendering and smooth scrolling animations on **TM1637**-driven 4-digit 7-segment displays, despite the hardware's inherent character limitations.
+
+## 🛠 Technical Approach and Tools
+
+While C++ (Arduino/ESP-IDF) is a common choice for ESP32, this project leverages **MicroPython** for several technical advantages:
+* **Interpreted Execution:** Eliminates compilation overhead, allowing for rapid on-device prototyping and real-time debugging.
+* **MicroPico Integration:** Utilizes the **MicroPico** extension in VS Code to establish a seamless UART bridge between the host development environment and the target hardware.
+
+## 🔌 Hardware Configuration
+
+The system operates via a two-wire serial communication protocol (CLK and DIO). The pin mapping is configured as follows:
+
+| TM1637 Pin | ESP32 GPIO | Description |
+| :--- | :--- | :--- |
+| **VCC** | 3.3V / 5V | Power Supply |
+| **GND** | G (GND) | Ground |
+| **CLK** | GPIO 22 | Serial Clock Line |
+| **DIO** | GPIO 21 | Serial Data I/O |
+
+
+
+## 💻 Software Architecture and Algorithm
+
+The project is structured into two modular components for maintainability:
+
+### 1. Driver Layer (`tm1637.py`)
+Abstracts the hardware specifications and manages the low-level segment mapping required to drive the LED segments.
+
+### 2. Application Layer (`main.py`)
+The text scrolling engine is optimized with the following technical features:
+* **Character Substitution:** Due to the physical constraints of 7-segment displays (e.g., inability to render 'M' or 'W' properly), visual substitutions such as 'M' -> 'n' and 'S' -> '5' are implemented to maximize legibility.
+* **Scrolling Loop:** The `metni_kaydir` (scroll_text) function updates the 4-digit display buffer through `len(text) - 3` iterations, ensuring a fluid visual flow.
+* **Error Handling:** Robustness is maintained via `try-except` blocks to prevent runtime crashes when encountering unsupported characters.
+
+
+
+## 🚀 Getting Started
+1. Upload the `tm1637.py` library from the `src/` directory to your ESP32.
+2. Deploy the `main.py` file using the `MicroPico: Upload file to board` command.
+3. Install host-side serial communication dependencies: `pip install -r requirements.txt`
+
+---
+**Developer:** İlker ALKAN - Yıldız Technical University Electronics and Communications Engineering
+
+
+
+
+
 # ESP32 ve TM1637 ile MikroPython Tabanlı Dinamik Metin Kaydırma
 
 Bu proje, **ESP32 (HW-069)** mikrodenetleyici üzerinde **MikroPython** çalışma zamanı kullanılarak, **TM1637** 7-segment sürücüsü ile dinamik metin kaydırma (scrolling text) işlemlerini gerçekleştirmektedir. Proje, kısıtlı donanım kaynaklarıyla okunabilir metin akışı sağlamak için özelleştirilmiş algoritmalar içerir.
@@ -42,4 +92,4 @@ Metin kaydırma mekanizması şu teknik özelliklerle optimize edilmiştir:
 3. Seri haberleşme araçlarını kurmak için: `pip install -r requirements.txt`
 
 ---
-**Geliştirici:** İlker ALKAN - YTÜ Elektronik ve Haberleşme Mühendisliği
+**Geliştirici:** İlker ALKAN - Yıldız Teknik Üniversitesi Elektronik ve Haberleşme Mühendisliği
