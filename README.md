@@ -42,5 +42,4 @@ Metin kaydırma mekanizması şu teknik özelliklerle optimize edilmiştir:
 3. Seri haberleşme araçlarını kurmak için: `pip install -r requirements.txt`
 
 ---
-**Geliştirici:** [Adın Soyadın]  
-**Kurum:** Yıldız Teknik Üniversitesi - Elektronik ve Haberleşme Mühendisliği
+**Geliştirici:** İlker ALKAN - YTÜ Elektronik ve Haberleşme Mühendisliği
