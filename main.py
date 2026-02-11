@@ -9,7 +9,7 @@ tm.brightness(3)
 # 'M' harfi yerine 'n' kullanmak bazen daha okunaklı olur.
 # 'Ş' yerine 'S', 'Ğ' yerine 'G', 'İ' yerine 'i'
 # Mesajın başına ve sonuna boşluk ekledik ki yazı ekrana girip çıksın.
-mesaj = "    HOSGELDIN YA SEHRI RAnAZAN    "
+mesaj = "    message    "
 
 def metni_kaydir(text, gecikme=0.35):
     # Yazıyı karakter karakter kaydıran döngü
@@ -22,11 +22,12 @@ def metni_kaydir(text, gecikme=0.35):
             pass
         time.sleep(gecikme)
 
-print("Ramazan Mesajı Başlatılıyor...")
+print("Mesajı Başlatılıyor...")
 
 # Eski "HELL" kodunu temizlemek için ekranı bir kez söndür
 tm.write([0, 0, 0, 0])
 time.sleep(0.5)
 
 while True:
+
     metni_kaydir(mesaj)
